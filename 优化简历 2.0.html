@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谢红霖 - 个人简历</title>
+    <style>
+        :root {
+            --primary-color: #6a5acd; /* 主色调 - 紫罗兰色 */
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --light-gray: #e9ecef;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .resume-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+        
+        .header-text {
+            flex: 1;
+        }
+        
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2.2em;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            margin-left: 20px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+        }
+        
+        .contact-info li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info b {
+            min-width: 60px;
+            display: inline-block;
+            color: var(--primary-color);
+        }
+        
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        a:hover {
+            color: #4b3d8f;
+            text-decoration: underline;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+            margin-top: 25px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: var(--secondary-color);
+        }
+        
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+        ol {
+            padding-left: 20px;
+        }
+        
+        ol li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .intro {
+            background-color: var(--light-gray);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .form-link {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .form-link:hover {
+            background-color: #4b3d8f;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin: 20px auto 0;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <header>
+            <div class="header-text">
+                <h1>谢红霖</h1>
+                <p>上海对外经贸大学 | 统计与信息学院</p>
+                <a href="表单.html" class="form-link">联系表单</a>
+            </div>
+            <img src="me.jpg" alt="谢红霖照片" class="profile-img">
+        </header>
+
+        <section>
+            <h2>个人信息</h2>
+            <ul class="contact-info">
+                <li><b>性别：</b>女</li>
+                <li><b>电话：</b><a href="tel:12345678901" target="_blank">123-4567-8901</a></li>
+                <li><b>邮箱：</b><a href="mailto:3115151863@qq.com">3115151863@qq.com</a></li>
+                <li><b>生日：</b>2005年4月10日</li>
+                <li><b>兴趣：</b>阅读、影视、游戏</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>教育背景</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>学校</th>
+                        <th>职务</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2020.9 - 2023.6</td>
+                        <td>四川省广汉中学</td>
+                        <td>班长</td>
+                    </tr>
+                    <tr>
+                        <td>2023.9 - 至今</td>
+                        <td>上海对外经贸大学</td>
+                        <td>学生</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>工作经验</h2>
+            <ol>
+                <li><strong>统计与信息学院团委组织部</strong> - 参与组织策划多项学院活动，负责活动协调与执行</li>
+                <li><strong>班级事务管理</strong> - 作为班长，负责班级日常管理与活动组织</li>
+                <li><strong>志愿者经历</strong> - 参与社区服务与校园志愿者活动</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>自我介绍</h2>
+            <div class="intro">
+                <p>您好！我是谢红霖，目前就读于上海对外经贸大学统计与数据科学学院。</p>
+                <p>我性格开朗，责任心强，具有良好的组织协调能力和团队合作精神。在高中担任班长期间积累了丰富的管理经验，大学期间积极参与团委工作，培养了良好的沟通和执行能力。</p>
+                <p>我对数据分析领域充满兴趣，正在努力学习相关知识和技能。课余时间喜欢阅读、追剧和游戏，这些爱好帮助我保持开放的心态和创造力。</p>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

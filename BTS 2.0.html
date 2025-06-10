@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全世界仅此一次的BTS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #7e3b8a; 
+            --secondary: #a569bd; 
+            --dark: #4a235a; 
+            --light: #f5eef8; 
+            --accent: #f39c12; 
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f5fb;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--dark), var(--primary));
+            color: white;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(74, 35, 90, 0.8), rgba(74, 35, 90, 0.9)), url('https://images.unsplash.com/photo-1619983081563-430f63602b69?ixlib=rb-4.0.3') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .btn:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .section {
+            padding: 5rem 10%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        /* 轮播图样式修复 */
+        .carousel-container {
+            width: 100%;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+            transform: translateY(-50%);
+        }
+        
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .carousel-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .indicator.active {
+            background: var(--accent);
+        }
+        
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .member-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .member-card:hover .member-image img {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .member-info h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-info p {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .achievements-container {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 4rem 10%;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .achievement-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .achievement-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .discography-container {
+            background-color: var(--light);
+            padding: 3rem;
+            border-radius: 15px;
+        }
+        
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .album-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .album-cover {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .album-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .album-info {
+            padding: 1.2rem;
+        }
+        
+        .album-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .album-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .impact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .impact-item {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .impact-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .impact-text {
+            flex: 1;
+        }
+        
+        .impact-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .impact-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .faq-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: #555;
+            padding-top: 0.5rem;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            text-align: center;
+            padding: 5rem 10%;
+            border-radius: 15px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 10% 1.5rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @media (max-width: 992px) {
+            .about-content, .impact-item {
+                flex-direction: column;
+            }
+            
+            .impact-item:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .section {
+                padding: 3rem 5%;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+            }
+            
+            .carousel {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .carousel {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <span>全世界仅此一次的BTS</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">关于BTS</a></li>
+                <li><a href="#members">成员介绍</a></li>
+                <li><a href="#achievements">成就</a></li>
+                <li><a href="#discography">音乐作品</a></li>
+                <li><a href="#impact">影响力</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>认识防弹少年团(BTS)</h1>
+            <p>全球音乐现象，文化变革的领导者</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn">开始探索</a>
+                <a href="#discography" class="btn btn-outline">欣赏音乐</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于BTS部分 -->
+    <section id="about" class="section">
+        <div class="section-title">
+            <h2>关于BTS</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>谁是BTS？</h3>
+                <p>BTS（防弹少年团）是来自韩国的七人男子音乐团体，由Big Hit Entertainment（现为HYBE）于2013年6月13日成立。团名"防弹少年团"寓意着阻挡像子弹一样飞来的偏见与压迫，守护青少年们的音乐梦想。</p>
+                <p>BTS由三位Rapper（RM、SUGA、j-hope）和四位Vocal（Jin、Jimin、V、Jung Kook）组成，每位成员都参与音乐创作和制作过程。</p>
+                <p>他们的音乐涵盖多种风格，从嘻哈、流行到R&B，歌词常探讨心理健康、自我认同、社会压力等深刻主题，在全球引起了强烈共鸣。</p>
+                <p>BTS不仅打破了语言障碍，还打破了文化壁垒，成为首个在联合国大会演讲的韩国流行团体，并多次获得格莱美提名。</p>
+            </div>
+            <div class="about-image">
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <div class="carousel-inner" id="carouselInner">
+                            <div class="carousel-item">
+                                <img src="1.jpg" alt="BTS">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="2.jpg" alt="BTS">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="3.jpg" alt="BTS">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="4.jpg" alt="BTS">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="5.jpg" alt="BTS">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="6.jpg" alt="BTS">
+                            </div>
+                        </div>
+                        <div class="carousel-controls">
+                            <button class="carousel-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+                            <button class="carousel-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="carousel-indicators" id="indicators"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成员介绍部分 -->
+    <section id="members" class="section" style="background-color: var(--light);">
+        <div class="section-title">
+            <h2>成员介绍</h2>
+        </div>
+        <div class="members-grid">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="RM.jpg" alt="RM">
+                </div>
+                <div class="member-info">
+                    <h3>RM</h3>
+                    <p>队长、Rapper</p>
+                </div>
+            </div>
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="Jin.jpg" alt="Jin">
+                </div>
+                <div class="member-info">
+                    <h3>Jin</h3>
+                    <p>门面、副主唱</p>
+                </div>
+            </div>
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="SUGA.jpg" alt="SUGA">
+                </div>
+                <div class="member-info">
+                    <h3>SUGA</h3>
+                    <p>Rapper、制作人</p>
+                </div>
+            </div>
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="j-hope.jpg" alt="j-hope">
+                </div>
+                <div class="member-info">
+                    <h3>j-hope</h3>
+                    <p>主舞、Rapper</p>
+                </div>
+            </div>
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="jimin.jpg" alt="Jimin">
+                </div>
+                <div class="member-info">
+                    <h3>Jimin</h3>
+                    <p>主舞、领唱</p>
+                </div>
+            </div>
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="V.jpg" alt="V">
+                </div>
+                <div class="member-info">
+                    <h3>V</h3>
+                    <p>副主唱</p>
+                </div>
+            </div>
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="Jung Kook.jpg" alt="Jung Kook">
+                </div>
+                <div class="member-info">
+                    <h3>Jung Kook</h3>
+                    <p>主唱、忙内</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成就部分 -->
+    <section id="achievements" class="section">
+        <div class="section-title">
+            <h2>非凡成就</h2>
+        </div>
+        <div class="achievements-container">
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>4</h3>
+                    <p>美国Billboard冠军单曲</p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>30+</h3>
+                    <p>吉尼斯世界纪录</p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-music"></i>
+                    <h3>5</h3>
+                    <p>格莱美提名</p>
+                </div>
+                <div class="achievement-card">
+                    <i class="fas fa-users"></i>
+                    <h3>6000万+</h3>
+                    <p>全球粉丝(ARMY)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 音乐作品部分 -->
+    <section id="discography" class="section">
+        <div class="section-title">
+            <h2>代表作品</h2>
+        </div>
+        <div class="discography-container">
+            <div class="album-grid">
+                <div class="album-card">
+                    <div class="album-cover">
+                        <img src="Proof.jpg" alt="Proof">
+                    </div>
+                    <div class="album-info">
+                        <h3><a href="https://y.qq.com/n/m/detail/album/index.html?albummid=002E9QS70kqHh6">Proof</a></h3>
+                        <p>2022 · 单曲</p>
+                    </div>
+                </div>
+                <div class="album-card">
+                    <div class="album-cover">
+                        <img src="Dynamite.jpg" alt="Dynamite">
+                    </div>
+                    <div class="album-info">
+                        <h3><a href="https://y.qq.com/n/m/detail/album/index.html?albummid=0036uTUj0DNlHi">Dynamite</a></h3>
+                        <p>2020 · 单曲</p>
+                    </div>
+                </div>
+                <div class="album-card">
+                    <div class="album-cover">
+                        <img src="Butter.jpg" alt="Butter">
+                    </div>
+                    <div class="album-info">
+                        <h3><a href="https://y.qq.com/n/m/detail/album/index.html?albummid=003Ir5YZ2DgyqM">Butter</a></h3>
+                        <p>2021 · 单曲</p>
+                    </div>
+                </div>
+                <div class="album-card">
+                    <div class="album-cover">
+                        <img src="BE.jpg" alt="BE">
+                    </div>
+                    <div class="album-info">
+                        <h3><a href="https://y.qq.com/n/m/detail/album/index.html?albummid=000pqaAJ45IARZ">BE</a></h3>
+                        <p>2020 · 专辑</p>
+                    </div>
+                </div>
+                <div class="album-card">
+                    <div class="album-cover">
+                        <img src="7.jpg" alt="Map of the Soul: 7">
+                    </div>
+                    <div class="album-info">
+                        <h3><a href="https://y.qq.com/n/m/detail/album/index.html?albummid=001jhsT82xuR1C">Map of the Soul: 7</a></h3>
+                        <p>2020 · 专辑</p>
+                    </div>
+                </div>
+                <div class="album-card">
+                    <div class="album-cover">
+                        <img src="结.jpg" alt="Love Yourself 結 'Answer'">
+                    </div>
+                    <div class="album-info">
+                        <h3><a href="https://y.qq.com/n/m/detail/album/index.html?albummid=001U54ZO15tcWZ">Love Yourself 結</a></h3>
+                        <p>2018 · 专辑</p>
+                    </div>
+                </div>
+                <div class="album-card">
+                    <div class="album-cover">
+                        <img src="wings.jpg" alt="WINGS">
+                    </div>
+                    <div class="album-info">
+                        <h3><a href="https://y.qq.com/n/m/detail/album/index.html?albummid=002fvCcw4Sbn8Y">WINGS</a></h3>
+                        <p>2016 · 专辑</p>
+                    </div>
+                </div>
+                <div class="album-card">
+                    <div class="album-cover">
+                        <img src="花样年华.jpg" alt="花样年华 pt.1">
+                    </div>
+                    <div class="album-info">
+                        <h3><a href="https://y.qq.com/n/m/detail/album/index.html?albummid=001QEdZq0FFjSx">花样年华 pt.1</a></h3>
+                        <p>2015 · 专辑</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 影响力部分 -->
+    <section id="impact" class="section" style="background-color: var(--light);">
+        <div class="section-title">
+            <h2>全球影响力</h2>
+        </div>
+        <div class="impact-content">
+            <div class="impact-item">
+                <div class="impact-text">
+                    <h3>联合国演讲</h3>
+                    <p>2018年和2020年，BTS两次在联合国大会发表演讲，倡导青年赋权和自爱理念。他们与联合国儿童基金会合作发起"Love Myself"反暴力活动，已筹集数百万美元。</p>
+                    <p>"无论你是谁、来自何方、肤色如何、性别认同如何，请为自己发声。" - RM在联合国的演讲</p>
+                </div>
+                <div class="impact-image">
+                    <img src="联合国演讲.jpg" alt="BTS在联合国">
+                </div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-text">
+                    <h3>文化大使</h3>
+                    <p>BTS被韩国政府授予文化勋章，表彰他们对韩国文化全球传播的贡献。他们的音乐和表演将韩流(K-Pop)推向了前所未有的高度，促进了全球对韩国文化的兴趣。</p>
+                    <p>根据韩国现代经济研究院报告，BTS每年为韩国经济贡献约46亿美元，相当于26家中型公司的总和。</p>
+                </div>
+                <div class="impact-image">
+                    <img src="文化大使.jpg" alt="BTS文化影响">
+                </div>
+            </div>
+            <div class="impact-item">
+                <div class="impact-text">
+                    <h3>社会倡导</h3>
+                    <p>BTS通过音乐探讨心理健康、社会压力、青年困境等议题，打破了亚洲文化中对这些话题的禁忌。他们的"Love Yourself"系列专辑鼓励全球年轻人接纳自我。</p>
+                    <p>2021年，BTS发起"Stop Asian Hate"活动，声援反对亚裔仇恨犯罪，并捐赠100万美元支持相关组织。</p>
+                </div>
+                <div class="impact-image">
+                    <img src="社会倡导.jpg" alt="BTS社会活动">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行动呼吁部分 -->
+    <section class="cta-section">
+        <h2>加入全球ARMY大家庭</h2>
+        <p>探索BTS的音乐世界，感受他们传递的积极信息，成为改变世界的力量一部分</p>
+        <a href="#" class="btn">了解更多</a>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>探索BTS</h3>
+                <p>让更多人了解BTS</p>
+            </div>
+            <div class="footer-section">
+                <h3>快速链接</h3>
+                <ul class="footer-links">
+                    <li><a href="#about">关于BTS</a></li>
+                    <li><a href="#members">成员介绍</a></li>
+                    <li><a href="#achievements">成就</a></li>
+                    <li><a href="#discography">音乐作品</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>官方资源</h3>
+                <ul class="footer-links">
+                    <li><a href="https://weverse.io/bts/artistpedia">Weverse官方社区</a></li>
+                    <li><a href="https://s.weibo.com/weibo?q=bts">BTS官方微博</a></li>
+                    <li><a href="https://ibighit.com/bts/chn/">BIGHIT MUSCI</a></li>
+                    <li><a href="https://www.hybecorp.com/kor/main">HYBE官方</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 本网站为粉丝制作，与BTS官方无关.仅用于课程期末目的.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel-inner');
+            const items = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicatorsContainer = document.getElementById('indicators');
+            
+            let currentIndex = 0;
+            const totalItems = items.length;
+            
+            items.forEach((_, index) => {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if(index === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => goToSlide(index));
+                indicatorsContainer.appendChild(indicator);
+            });
+            
+            const indicators = document.querySelectorAll('.indicator');
+            
+            function goToSlide(index) {
+                currentIndex = index;
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+            indicators.forEach((indicator, i) => {
+                    if(i === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalItems;
+                goToSlide(currentIndex);
+            }
+            
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                goToSlide(currentIndex);
+            }
+            
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            
+            let autoSlide = setInterval(nextSlide, 5000);
+            
+            const carouselContainer = document.querySelector('.carousel-container');
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(autoSlide);
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                autoSlide = setInterval(nextSlide, 5000);
+            });
+            
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    answer.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
